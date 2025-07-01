@@ -1,0 +1,81 @@
+{
+  "home": "Inicio",
+  "projects": "Proyectos",
+  "contact": "Contacto",
+  "downloadCV": "Descargar CV",
+  "greeting": "Hola y bienvenido, soy ",
+  "tagline": "Construyo experiencias web rápidas y modernas con código limpio y modular.",
+  "specializations": ["React", "Java", "Docker", "Integración"],
+  "projectCollection": "Una colección de proyectos que muestran mis habilidades técnicas y mi pasión por crear soluciones efectivas.",
+  "projectList": [
+    {
+      "title": "j1.wtf",
+      "desc": "Aplicación web en tiempo real tipo Twitter hecha con React y Firebase.",
+      "full_description": "Esta webapp fue mi primer proyecto de programación de verdad. Aprendí los conceptos básicos de React, los hooks, el Virtual DOM y distintas formas de enrutar la aplicación. Para el backend elegí Firebase porque ya incluía todo lo que necesitaba: autenticación, almacenamiento y base de datos. Firebase usa su propia base de datos no relacional llamada Firestore, que es una base de datos de documentos similar a MongoDB.",
+      "url": "https://j1-old.vercel.app/",
+      "pic_url": "/j1wtf.png"
+    },
+    {
+      "title": "Intellipic",
+      "desc": "Generador de imágenes con IA y fine-tuning.",
+      "full_description": "Cuando las IA de texto a imagen empezaban a popularizarse, un amigo y yo pensamos en esta idea de app, inspirada en Lensa. Queríamos crear avatares generados por IA para redes sociales. Usamos Next.js y Supabase, y para la IA terminamos empleando Replicate, un servicio SaaS que nos permite afinar modelos y generar inferencias a partir de una base de Stable Diffusion XL.",
+      "url": "https://intellipic.vercel.app/",
+      "pic_url": "/intellipic.png"
+    },
+    {
+      "title": "Erasmus Project at CGI",
+      "desc": "App full-stack con Spring Boot, Angular, PostgreSQL y Docker.",
+      "full_description": "Este fue mi proyecto de prácticas, realizado junto a tres compañeros. La idea era crear una aplicación que permitiera a RR. HH. construir propuestas de empleo estandarizadas para cálculos controlados de estimación salarial. Usamos Angular en el frontend, Java Spring Boot en el backend conectado a PostgreSQL, todo containerizado con Docker, y añadimos otro microservicio para generar las propuestas en PDF descargable.",
+      "url": "https://github.com/j1-dev/erasmus",
+      "pic_url": "/CGI.png"
+    },
+    {
+      "title": "Flowtrack",
+      "desc": "Aplicación full-stack con Next.js, Prisma y Tailwind CSS para el seguimiento de tareas y hábitos.",
+      "full_description": "Flowtrack es una aplicación full-stack construida con Next.js, Prisma y Tailwind CSS. Permite a los usuarios realizar un seguimiento de sus tareas y hábitos de manera eficiente, proporcionando una interfaz de usuario moderna y receptiva, así como análisis que ofrecen retroalimentación sobre su progreso diario.",
+      "url": "https://flowtrack-ochre.vercel.app/",
+      "pic_url": "/flowtrack2.png"
+    },
+    {
+      "title": "Seal",
+      "desc": "Remake con Next.js 15 y Supabase de mi primer proyecto.",
+      "full_description": "Seal es mi proyecto más reciente y lo hice para ver qué pasaría si volviera a implementar la idea de mi primer proyecto. En lugar de React usé Next.js, y en vez de Firebase utilicé Supabase, porque esta vez quería trabajar con una base de datos SQL.",
+      "url": "https://the-seal.vercel.app/",
+      "pic_url": "/seal.png"
+    },
+    {
+      "title": "Intellipic-lite",
+      "desc": "Versión ligera de Intellipic con Next.js y Supabase.",
+      "full_description": "Intellipic-lite es una versión simplificada de la aplicación original Intellipic, construida con Next.js y Supabase. Mantiene la funcionalidad principal de generación de avatares por IA mientras optimiza la experiencia del usuario y reduce el consumo de recursos.",
+      "url": "https://intellipic-lite.vercel.app/",
+      "pic_url": "intellipic-lite.png"
+    }
+  ],
+  "skills": [
+    "TypeScript",
+    "Angular",
+    "React",
+    "Next.js",
+    "TailwindCSS",
+    "Java",
+    "Spring Framework",
+    "PostgreSQL",
+    "MySQL",
+    "Docker",
+    "Microservicios"
+  ],
+  "github": "GitHub",
+  "linkedin": "LinkedIn",
+  "viewProject": "Ver Proyecto",
+  "visitProject": "Visitar proyecto",
+  "featuredProjects": "Proyectos Destacados",
+  "getInTouch": "Contacta conmigo",
+  "sendMessage": "Enviar Mensaje",
+  "discuss": "Hablemos sobre cómo podemos trabajar juntos para dar vida a tus ideas.",
+  "name": "Nombre",
+  "email": "Correo",
+  "message": "Mensaje",
+  "fullName": "Tu nombre completo",
+  "tellMe": "¡Cuéntame sobre tu proyecto o simplemente saluda!",
+  "footerText": "© 2025 {{author}}."
+}
