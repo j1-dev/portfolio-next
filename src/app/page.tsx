@@ -99,10 +99,18 @@ export default function PortfolioPage() {
       {/* Aurora background for Hero/Intro section */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none h-full">
         <Aurora
-          colorStops={['#3A29FF', '#FF94B4', '#FF3232']}
+          colorStops={['#22221f', '#b6d6c2', '#e6c7b2']}
           blend={1}
           amplitude={0.5}
           speed={0.5}
+        />
+        {/* Aurora fade to black at the bottom */}
+        <div
+          className="absolute left-0 right-0 bottom-0 h-1/4 w-full pointer-events-none"
+          style={{
+            background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%)',
+            zIndex: 2,
+          }}
         />
       </div>
 
@@ -185,6 +193,13 @@ export default function PortfolioPage() {
 
         {/* Projects Section with Dither background */}
         <section id="projects" className="py-24 px-6 relative">
+          <div
+            className="absolute left-0 right-0 top-0 h-1/4 w-full pointer-events-none"
+            style={{
+              background: 'linear-gradient(0deg, rgba(0,0,0,0) 0%, #000 100%)',
+              zIndex: 2,
+            }}
+          />
           {/* Dither background */}
           <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
             <Dither
@@ -196,6 +211,15 @@ export default function PortfolioPage() {
               waveAmplitude={0.3}
               waveFrequency={3}
               waveSpeed={0.05}
+            />
+            {/* Fade to black at the bottom for smooth transition to next section */}
+            <div
+              className="absolute left-0 right-0 bottom-0 h-1/4 w-full pointer-events-none"
+              style={{
+                background:
+                  'linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%)',
+                zIndex: 2,
+              }}
             />
           </div>
           <div className="max-w-6xl mx-auto relative z-10">
@@ -298,13 +322,20 @@ export default function PortfolioPage() {
         {/* Contact Section with LetterGlitch background */}
         <section id="contact" className="py-24 px-6 relative">
           {/* LetterGlitch background */}
+          <div
+            className="absolute left-0 right-0 top-0 h-1/4 w-full pointer-events-none"
+            style={{
+              background: 'linear-gradient(0deg, rgba(0,0,0,0) 0%, #000 100%)',
+              zIndex: 2,
+            }}
+          />
           <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
             <LetterGlitch
               glitchSpeed={50}
               centerVignette={true}
               outerVignette={false}
               smooth={true}
-              glitchColors={['#2b4539', '#61dca3', '#61b3dc']}
+              glitchColors={['#22221f', '#b6d6c2', '#e6c7b2']}
             />
           </div>
           <div className="max-w-2xl mx-auto relative z-10">
