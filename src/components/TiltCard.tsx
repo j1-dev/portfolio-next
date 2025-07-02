@@ -24,6 +24,7 @@ export function TiltCard({ children, options }: TiltCardProps) {
 
       // Cleanup on unmount
       return () => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         (ref.current as (HTMLDivElement & { vanillaTilt?: { destroy: () => void } }))?.vanillaTilt?.destroy();
       };
     }

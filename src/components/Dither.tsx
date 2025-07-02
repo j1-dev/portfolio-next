@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unknown-property */
+'use client'
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree, ThreeEvent } from '@react-three/fiber';
 import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
@@ -315,7 +315,6 @@ export default function Dither({
     <Canvas
       className="w-full h-full relative"
       camera={{ position: [0, 0, 6] }}
-      dpr={window.devicePixelRatio}
       gl={{ antialias: true, preserveDrawingBuffer: true }}>
       <DitheredWaves
         waveSpeed={waveSpeed}
