@@ -101,7 +101,7 @@ export default function PortfolioPage() {
       {/* Aurora background for Hero/Intro section */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none h-full">
         <Aurora
-          colorStops={['#22221f', '#b6d6c2', '#e6c7b2']}
+          colorStops={['#5bc0be', '#6fffe9', '#3a506b', '#1c2541', '#0b132b']}
           blend={1}
           amplitude={0.5}
           speed={0.5}
@@ -128,11 +128,11 @@ export default function PortfolioPage() {
                 <SplitText
                   text="Juan García Marín"
                   className="text-6xl sm:text-7xl md:text-9xl font-black text-center"
-                  delay={75}
-                  duration={0.4}
-                  ease="power1.out(1, 3)"
+                  delay={60}
+                  duration={2}
+                  ease="expo.out"
                   splitType="words, chars"
-                  from={{ opacity: 0, y: 40 }}
+                  from={{ opacity: 0, y: 80 }}
                   to={{ opacity: 1, y: 0 }}
                   threshold={0.1}
                   textAlign="center"
@@ -176,7 +176,7 @@ export default function PortfolioPage() {
 
             {/* Skills Horizontal Scroll - full width, overlayed, does not affect centering */}
             <div className="relative w-full flex justify-center mt-8">
-              <div className="w-full max-w-5xl mx-auto">
+              <div className="absolute left-0 right-0 w-screen max-w-none -mx-[calc((100vw-100%)/2)]">
                 <MarqueeSkills
                   items={skills.map((skill) => (
                     <SkillIcon key={skill} skill={skill} />
@@ -202,11 +202,11 @@ export default function PortfolioPage() {
           {/* Dither background */}
           <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
             <Dither
-              waveColor={[0.25, 0.25, 0.25]}
+              waveColor={[0.36, 0.75, 0.75]} // #5bc0be normalized (91,192,190)
               disableAnimation={false}
               enableMouseInteraction={false}
               mouseRadius={1}
-              colorNum={4}
+              colorNum={5}
               waveAmplitude={0.3}
               waveFrequency={3}
               waveSpeed={0.05}
@@ -236,25 +236,25 @@ export default function PortfolioPage() {
                 {projectList.map((p, index) => (
                   <SpotlightCard
                     key={p.title}
-                    className="cursor-pointer h-80 p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    className="cursor-pointer h-80 p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-[#0b132b]/40 dark:border-[#5bc0be]/40 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                     <div
                       onClick={() => setSelectedProject(p)}
                       style={{ animationDelay: `${index * 150}ms` }}
                       className="flex flex-col justify-between h-full group w-full cursor-pointer">
                       <div>
-                        <div className="w-12 h-12 rounded-xl bg-black dark:bg-white flex items-center justify-center mb-4">
-                          <span className="text-white dark:text-black font-bold text-lg">
-                            {p.title.charAt(0)}
+                        <div className="w-12 h-12 rounded-xl bg-[#6fffe9] from-[#0b132b] via-[#3a506b] to-[#6fffe9] flex items-center justify-center mb-4">
+                          <span className="text-background font-bold text-lg">
+                            {p.title.charAt(0).toUpperCase()}
                           </span>
                         </div>
-                        <h3 className="text-xl font-bold mb-2 text-black dark:text-white tracking-tight">
+                        <h3 className="text-xl font-bold mb-2 text-[#1c2541] dark:text-[#5bc0be] tracking-tight">
                           {p.title}
                         </h3>
-                        <p className="text-neutral-700 dark:text-neutral-300 text-base leading-relaxed mb-2">
+                        <p className="text-foreground text-base leading-relaxed mb-2">
                           {p.desc}
                         </p>
                       </div>
-                      <div className="flex items-center text-black dark:text-white font-semibold group-hover:underline transition-all duration-200 text-sm">
+                      <div className="flex items-center text-[#0b132b] dark:text-[#5bc0be] font-semibold group-hover:underline transition-all duration-200 text-sm">
                         <span>{t('viewProject')}</span>
                         <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
                           →
@@ -336,7 +336,13 @@ export default function PortfolioPage() {
               centerVignette={true}
               outerVignette={false}
               smooth={true}
-              glitchColors={['#22221f', '#b6d6c2', '#e6c7b2']}
+              glitchColors={[
+                '#0b132b',
+                '#1c2541',
+                '#3a506b',
+                '#5bc0be',
+                '#6fffe9',
+              ]}
             />
           </div>
           <div className="max-w-2xl mx-auto relative z-10">
