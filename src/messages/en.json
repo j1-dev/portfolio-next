@@ -41,14 +41,14 @@
       "desc": "Next.js 15 & Supabase remake of my first project.",
       "full_description": "Seal is my latest project and I decided to make it as a way to see what would happen if I was to implement my first project idea again. I used Next.js instead of React and Supabase instead of Firebase, because I wanted to use an SQL database this time. ",
       "url": "https://the-seal.vercel.app/",
-      "pic_url": "seal.png"
+      "pic_url": "/seal.png"
     },
     {
       "title": "Intellipic-lite",
       "desc": "Lightweight version of Intellipic with Next.js and Supabase.",
       "full_description": "Intellipic-lite is a simplified version of the original Intellipic app, built with Next.js and Supabase. It retains the core functionality of AI-generated avatars while streamlining the user experience and reducing resource consumption.",
       "url": "https://intellipic-lite.vercel.app/",
-      "pic_url": "intellipic-lite.png"
+      "pic_url": "/intellipic-lite.png"
     }
   ],
   "skills": [
@@ -68,7 +68,7 @@
   "linkedin": "LinkedIn",
   "viewProject": "View Project",
   "visitProject": "Visit project",
-  "discuss": "Let's discuss how we can work together to bring your ideas tolife.",
+  "discuss": "Let's discuss how we can work together to bring your ideas to life.",
   "featuredProjects": "Featured Projects",
   "getInTouch": "Get in Touch",
   "sendMessage": "Send Message",

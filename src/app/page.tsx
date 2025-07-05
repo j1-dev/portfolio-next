@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { TiltCard } from '@/components/TiltCard';
+import SpotlightCard from '@/components/SpotlightCard';
 import ShinyText from '@/components/ShinyText';
 import Silk from '@/components/Silk';
 import Dither from '@/components/Dither';
@@ -235,11 +235,13 @@ export default function PortfolioPage() {
             <div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projectList.map((p, index) => (
-                  <TiltCard key={p.title} options={{ max: 15, speed: 400 }}>
+                  <SpotlightCard
+                    key={p.title}
+                    className="cursor-pointer h-80 p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                     <div
                       onClick={() => setSelectedProject(p)}
-                      className="group cursor-pointer h-80 p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-                      style={{ animationDelay: `${index * 150}ms` }}>
+                      style={{ animationDelay: `${index * 150}ms` }}
+                      className="flex flex-col justify-between h-full group w-full cursor-pointer">
                       <div>
                         <div className="w-12 h-12 rounded-xl bg-black dark:bg-white flex items-center justify-center mb-4">
                           <span className="text-white dark:text-black font-bold text-lg">
@@ -260,7 +262,7 @@ export default function PortfolioPage() {
                         </span>
                       </div>
                     </div>
-                  </TiltCard>
+                  </SpotlightCard>
                 ))}
               </div>
             </div>

@@ -48,7 +48,7 @@
       "desc": "Versión ligera de Intellipic con Next.js y Supabase.",
       "full_description": "Intellipic-lite es una versión simplificada de la aplicación original Intellipic, construida con Next.js y Supabase. Mantiene la funcionalidad principal de generación de avatares por IA mientras optimiza la experiencia del usuario y reduce el consumo de recursos.",
       "url": "https://intellipic-lite.vercel.app/",
-      "pic_url": "intellipic-lite.png"
+      "pic_url": "/intellipic-lite.png"
     }
   ],
   "skills": [

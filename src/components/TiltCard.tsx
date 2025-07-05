@@ -13,11 +13,10 @@ export function TiltCard({ children, options }: TiltCardProps) {
 
   useEffect(() => {
     if (ref.current) {
-      // Initialize tilt on this element
       VanillaTilt.init(ref.current, {
         reverse: true,
         max: 15, // max tilt rotation (degrees)
-        speed: 400, // how fast the tilt responds
+        speed: 300, // how fast the tilt responds
         glare: false, // enables glare effect
         ...options,
       });
