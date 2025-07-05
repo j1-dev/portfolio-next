@@ -120,14 +120,14 @@ export default function PortfolioPage() {
         {/* Hero Section */}
         <section
           id="intro"
-          className="min-h-screen flex items-center justify-center px-6">
+          className="min-h-screen flex items-center justify-center px-6 pt-24 md:pt-0">
           <div className="text-center mx-auto">
             <div className="mb-8 animate-fade-in">
               <ShinyText text={t('greeting')} speed={3} className="text-2xl" />
               <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-5xl gap-16 my-10">
                 <SplitText
                   text="Juan García Marín"
-                  className="text-9xl font-black text-center"
+                  className="text-6xl sm:text-7xl md:text-9xl font-black text-center"
                   delay={75}
                   duration={0.4}
                   ease="power1.out(1, 3)"
@@ -176,7 +176,7 @@ export default function PortfolioPage() {
 
             {/* Skills Horizontal Scroll - full width, overlayed, does not affect centering */}
             <div className="relative w-full flex justify-center mt-8">
-              <div className="absolute left-0 right-0 w-screen max-w-none -mx-[calc((100vw-100%)/2)]">
+              <div className="w-full max-w-5xl mx-auto">
                 <MarqueeSkills
                   items={skills.map((skill) => (
                     <SkillIcon key={skill} skill={skill} />
