@@ -146,8 +146,9 @@ export default function Aurora(props: AuroraProps) {
 
     function resize() {
       if (!ctn) return;
-      const width = ctn.offsetWidth;
-      const height = ctn.offsetHeight;
+      const dpr = window.devicePixelRatio || 1;
+      const width = Math.round(ctn.offsetWidth * dpr);
+      const height = Math.round(ctn.offsetHeight * dpr);
       renderer.setSize(width, height);
       if (program) {
         program.uniforms.uResolution.value = [width, height];
@@ -160,7 +161,9 @@ export default function Aurora(props: AuroraProps) {
       delete geometry.attributes.uv;
     }
 
-    const colorStopsArray = colorStops.map((hex) => {
+    // Precompute color stops array
+    let lastColorStops = colorStops.slice();
+    let colorStopsArray = lastColorStops.map((hex) => {
       const c = new Color(hex);
       return [c.r, c.g, c.b];
     });
@@ -181,20 +184,55 @@ export default function Aurora(props: AuroraProps) {
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
+    let lastAmplitude = amplitude;
+    let lastBlend = blend;
+    let lastWidth = ctn.offsetWidth;
+    let lastHeight = ctn.offsetHeight;
+
     const update = (t: number) => {
       animateId = requestAnimationFrame(update);
-      const { time = t * 0.01, speed = 1.0 } = propsRef.current;
-      if (program) {
-        program.uniforms.uTime.value = time * speed * 0.1;
-        program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
-        program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
-        const stops = propsRef.current.colorStops ?? colorStops;
-        program.uniforms.uColorStops.value = stops.map((hex: string) => {
+      const {
+        time = t * 0.01,
+        speed = 1.0,
+        amplitude: amp = amplitude,
+        blend: bl = blend,
+        colorStops: stops = colorStops,
+      } = propsRef.current;
+
+      // Only update color stops if changed
+      if (stops.join() !== lastColorStops.join()) {
+        colorStopsArray = stops.map((hex: string) => {
           const c = new Color(hex);
           return [c.r, c.g, c.b];
         });
-        renderer.render({ scene: mesh });
+        program.uniforms.uColorStops.value = colorStopsArray;
+        lastColorStops = stops.slice();
       }
+
+      // Only update amplitude/blend if changed
+      if (amp !== lastAmplitude) {
+        program.uniforms.uAmplitude.value = amp;
+        lastAmplitude = amp;
+      }
+      if (bl !== lastBlend) {
+        program.uniforms.uBlend.value = bl;
+        lastBlend = bl;
+      }
+
+      // Only update resolution if changed
+      const dpr = window.devicePixelRatio || 1;
+      const width = Math.round(ctn.offsetWidth * dpr);
+      const height = Math.round(ctn.offsetHeight * dpr);
+      if (width !== lastWidth || height !== lastHeight) {
+        renderer.setSize(width, height);
+        program.uniforms.uResolution.value = [width, height];
+        lastWidth = width;
+        lastHeight = height;
+      }
+
+      // Always update time
+      program.uniforms.uTime.value = time * speed * 0.1;
+      renderer.render({ scene: mesh });
     };
     animateId = requestAnimationFrame(update);
 

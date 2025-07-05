@@ -157,19 +157,22 @@ const LetterGlitch = ({
     const dpr = window.devicePixelRatio || 1;
     const rect = parent.getBoundingClientRect();
 
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-
-    canvas.style.width = `${rect.width}px`;
-    canvas.style.height = `${rect.height}px`;
-
-    if (context.current) {
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Only resize if necessary
+    if (
+      canvas.width !== Math.round(rect.width * dpr) ||
+      canvas.height !== Math.round(rect.height * dpr)
+    ) {
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      if (context.current) {
+        context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      const { columns, rows } = calculateGrid(rect.width, rect.height);
+      initializeLetters(columns, rows);
+      drawLetters();
     }
-
-    const { columns, rows } = calculateGrid(rect.width, rect.height);
-    initializeLetters(columns, rows);
-    drawLetters();
   };
 
   const drawLetters = () => {
@@ -236,16 +239,21 @@ const LetterGlitch = ({
 
   const animate = () => {
     const now = Date.now();
+    let needsRedraw = false;
     if (now - lastGlitchTime.current >= glitchSpeed) {
       updateLetters();
-      drawLetters();
+      needsRedraw = true;
       lastGlitchTime.current = now;
     }
 
     if (smooth) {
       handleSmoothTransitions();
+      needsRedraw = true;
     }
 
+    if (needsRedraw) {
+      drawLetters();
+    }
     animationRef.current = requestAnimationFrame(animate);
   };
 
@@ -255,16 +263,14 @@ const LetterGlitch = ({
 
     context.current = canvas.getContext('2d');
     resizeCanvas();
-    animate();
+    animationRef.current = requestAnimationFrame(animate);
 
     let resizeTimeout: NodeJS.Timeout;
 
     const handleResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        cancelAnimationFrame(animationRef.current as number);
         resizeCanvas();
-        animate();
       }, 100);
     };
 

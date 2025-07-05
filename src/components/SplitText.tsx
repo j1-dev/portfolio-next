@@ -23,9 +23,9 @@ export interface SplitTextProps {
 const SplitText: React.FC<SplitTextProps> = ({
   text,
   className = '',
-  delay = 100,
-  duration = 0.6,
-  ease = 'power3.out',
+  delay = 40, // smoother: less delay between letters
+  duration = 0.8, // smoother: slightly longer duration
+  ease = 'power1.out', // smoother: gentler ease
   splitType = 'chars',
   from = { opacity: 0, y: 40 },
   to = { opacity: 1, y: 0 },

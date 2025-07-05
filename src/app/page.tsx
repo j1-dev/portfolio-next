@@ -3,6 +3,8 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import SpotlightCard from '@/components/SpotlightCard';
+import MarqueeSkills from '@/components/MarqueeSkills';
+import SkillIcon from '@/components/SkillIcons';
 import ShinyText from '@/components/ShinyText';
 import Silk from '@/components/Silk';
 import Dither from '@/components/Dither';
@@ -127,8 +129,8 @@ export default function PortfolioPage() {
                   text="Juan García Marín"
                   className="text-9xl font-black text-center"
                   delay={75}
-                  duration={0.5}
-                  ease="power3.out(1, 3)"
+                  duration={0.4}
+                  ease="power1.out(1, 3)"
                   splitType="words, chars"
                   from={{ opacity: 0, y: 40 }}
                   to={{ opacity: 1, y: 0 }}
@@ -172,20 +174,17 @@ export default function PortfolioPage() {
               </a>
             </div>
 
-            {/* Skills Grid */}
-            <div className="w-full flex justify-center">
-              <div className="flex flex-wrap justify-center items-center gap-3 max-w-5xl">
-                {skills.map((skill, index) => (
-                  <div
-                    key={skill}
-                    className="flex-shrink-0 px-4 py-2 rounded-full bg-white text-black dark:bg-neutral-900 dark:text-white border border-black/10 shadow-sm text-sm font-medium hover:scale-105 transition-all duration-300 animate-fade-in"
-                    style={{
-                      animationDelay: `${index * 100}ms`,
-                      minWidth: 'fit-content',
-                    }}>
-                    {skill}
-                  </div>
-                ))}
+            {/* Skills Horizontal Scroll - full width, overlayed, does not affect centering */}
+            <div className="relative w-full flex justify-center mt-8">
+              <div className="absolute left-0 right-0 w-screen max-w-none -mx-[calc((100vw-100%)/2)]">
+                <MarqueeSkills
+                  items={skills.map((skill) => (
+                    <SkillIcon key={skill} skill={skill} />
+                  ))}
+                  speed={60}
+                  className="w-full"
+                  style={{ minHeight: 56 }}
+                />
               </div>
             </div>
           </div>
