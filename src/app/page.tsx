@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import SpotlightCard from '@/components/SpotlightCard';
 import MarqueeSkills from '@/components/MarqueeSkills';
@@ -12,6 +12,7 @@ import Image from 'next/image';
 import LetterGlitch from '@/components/LetterGlitch';
 import Aurora from '@/components/Aurora';
 import SplitText from '@/components/SplitText';
+import LanguageToggle from '@/components/LanguageToggle';
 
 interface Project {
   title: string;
@@ -23,36 +24,8 @@ interface Project {
 
 export default function PortfolioPage() {
   const t = useTranslations();
-
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showModal, setShowModal] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [scrolled, setScrolled] = useState(false);
-  const [dark, setDark] = useState(false);
-
-  // Initialize theme from localStorage
-  useEffect(() => {
-    const isDark =
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches);
-    setDark(isDark);
-  }, []);
-
-  // Apply theme className and save to localStorage on change
-  useLayoutEffect(() => {
-    document.documentElement.classList.toggle('dark', dark);
-    localStorage.theme = dark ? 'dark' : 'light';
-  }, [dark]);
-
-  // Handle navbar scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Fade-in modal when selectedProject changes
   useEffect(() => {
@@ -117,6 +90,7 @@ export default function PortfolioPage() {
       </div>
 
       <main className="relative z-10">
+        <LanguageToggle />
         {/* Hero Section */}
         <section
           id="intro"
@@ -152,7 +126,7 @@ export default function PortfolioPage() {
                 href="https://github.com/j1-dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-8 py-4 rounded-full bg-black text-white font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md border border-black/10">
+                className="group px-8 py-4 rounded-full bg-black text-white font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md border border-stone-800 hover:border-stone-500">
                 <span className="flex items-center justify-center space-x-2 text-lg">
                   <span>{t('github')}</span>
                   <span className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -164,7 +138,7 @@ export default function PortfolioPage() {
                 href="https://www.linkedin.com/in/juan-garcia-marin/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group px-8 py-4 rounded-full border border-black/20 text-black dark:text-white font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 bg-white dark:bg-black/80">
+                className="group px-8 py-4 rounded-full border border-stone-800 hover:border-stone-500 text-black dark:text-white font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 bg-white dark:bg-black/80 ">
                 <span className="flex items-center justify-center space-x-2 text-lg">
                   <span>{t('linkedin')}</span>
                   <span className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -236,6 +210,7 @@ export default function PortfolioPage() {
                 {projectList.map((p, index) => (
                   <SpotlightCard
                     key={p.title}
+                    spotlightColor={'rgba(111, 255, 233, 0.3)'}
                     className="cursor-pointer h-80 p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-[#0b132b]/40 dark:border-[#5bc0be]/40 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                     <div
                       onClick={() => setSelectedProject(p)}

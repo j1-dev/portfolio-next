@@ -23,7 +23,7 @@ const skillIconMap: Record<string, { icon: React.ReactNode; color: string }> = {
   PostgreSQL: { icon: <SiPostgresql color="#336791" />, color: '#336791' },
   MySQL: { icon: <SiMysql color="#00758f" />, color: '#00758f' },
   Docker: { icon: <SiDocker color="#2496ed" />, color: '#2496ed' },
-  Microservices: { icon: <FaCubes color="#f59e42" />, color: '#f59e42' },
+  Microservicesz: { icon: <FaCubes color="#f59e42" />, color: '#f59e42' },
 };
 
 export const SkillIcon: FC<{ skill: string }> = ({ skill }) => {
