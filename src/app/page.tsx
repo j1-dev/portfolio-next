@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-// import LanguageToggle from '@/components/LanguageToggle';
+import LanguageToggle from '@/components/LanguageToggle';
 import Image from 'next/image';
 
 interface Project {
@@ -13,10 +13,19 @@ interface Project {
   url: string;
 }
 
+interface CTAButton {
+  title: string;
+  url: string;
+}
+
 export default function PortfolioPage() {
   const t = useTranslations();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const ctaButtons: CTAButton[] = [
+    { title: 'Github', url: 'https://github.com/j1-dev' },
+    { title: 'LinkedIn', url: 'https://linkedin.com/in/juan-garcia-marin' },
+  ];
 
   // Fade-in modal when selectedProject changes
   useEffect(() => {
@@ -63,16 +72,18 @@ export default function PortfolioPage() {
       <main className="relative z-10 w-7/12 mx-auto pt-3">
         <div className="w-full h-[9px] bg-white mx-auto" />
         <div className="w-full h-[3px] bg-white mx-auto mt-2" />
-        {/* <LanguageToggle /> */}
-        <section className="flex items-center px-4 pt-24 md:pt-0  relative">
+        <LanguageToggle />
+        <section className="flex items-center px-4 relative h-68">
           <div className="text-left ">
             <div className="my-8 animate-fade-in ">
-              <span className="text-xl md:text-2xl max-w-3xl mx-auto animate-shine">
-                {t('greeting')}
-              </span>
-              <p className="text-5xl font-black text-left animate-shine underline">
-                Juan García Marín
-              </p>
+              <div className='absolute top-12'>
+                <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-shine">
+                  {t('greeting')}
+                </p>
+                <p className="text-5xl font-black text-left animate-shine underline">
+                  Juan García Marín
+                </p>
+              </div>
 
               <div className="absolute right-0 top-0 mt-2">
                 <div className="relative w-[250px] h-[250px] ">
@@ -107,31 +118,24 @@ export default function PortfolioPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center absolute">
-              <a
-                href="https://github.com/j1-dev"
-                className="group px-8 py-4 rounded-2xl  text-white font-semibold ">
-                <span className="flex items-center justify-center space-x-2 text-lg">
-                  <span>{t('github')}</span>
-                  <span className="transform group-hover:translate-x-1 transition-transform duration-300">
-                    →
+              {ctaButtons.map((cta) => (
+                <a
+                  key={cta.title}
+                  href={cta.url}
+                  className="group px-8 py-4 rounded-2xl text-white font-semibold ">
+                  <span className="flex items-center justify-center space-x-2 text-lg">
+                    <span>{cta.title}</span>
+                    <span className="transform group-hover:translate-x-1 transition-transform duration-300">
+                      →
+                    </span>
                   </span>
-                </span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/juan-garcia-marin/"
-                className="group px-8 py-4 rounded-2xl  text-white font-semibold ">
-                <span className="flex items-center justify-center space-x-2 text-lg">
-                  <span>{t('linkedin')}</span>
-                  <span className="transform group-hover:translate-x-1 transition-transform duration-300">
-                    →
-                  </span>
-                </span>
-              </a>
+                </a>
+              ))}
             </div>
           </div>
         </section>
 
-        <div className="w-full h-[3px] bg-white mx-auto mt-36" />
+        <div className="w-full h-[3px] bg-white mx-auto " />
 
         <section id="projects" className="p-6 relative">
           <div className="w-full mx-auto relative z-10">
@@ -231,7 +235,7 @@ export default function PortfolioPage() {
 
         <section id="contact" className="p-6 relative">
           <div className="w-full mx-auto relative z-10">
-            <div className="mb-12">
+            <div className="mb-2">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-black dark:text-white tracking-tight">
                 {t('getInTouch')}
               </h2>
