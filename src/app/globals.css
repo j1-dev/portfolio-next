@@ -25,21 +25,7 @@ body {
   font-feature-settings: 'rlig' 1, 'calt' 1;
   font-synthesis-weight: none;
   text-rendering: optimizeLegibility;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@font-face {
-  font-family: 'Helvetica';
-  src: url('/font/HelveticaNeueMedium.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Helvetica';
-  src: url('/font/HelveticaNeueBold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
+  font-family: Typori;
 }
 
 @keyframes animation {

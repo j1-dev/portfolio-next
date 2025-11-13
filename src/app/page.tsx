@@ -73,14 +73,14 @@ export default function PortfolioPage() {
         <div className="w-full h-[9px] bg-white mx-auto" />
         <div className="w-full h-[3px] bg-white mx-auto mt-2" />
         <LanguageToggle />
-        <section className="flex items-center px-4 relative h-68">
+        <section className="flex items-center p-6 relative h-68 w-full">
           <div className="text-left ">
-            <div className="my-8 animate-fade-in ">
-              <div className='absolute top-12'>
-                <p className="text-xl md:text-2xl max-w-3xl mx-auto animate-shine">
+            <div className="my-8">
+              <div className='absolute top-12 '>
+                <p className="text-xl md:text-2xl max-w-3xl mx-auto">
                   {t('greeting')}
                 </p>
-                <p className="text-5xl font-black text-left animate-shine underline">
+                <p className="text-5xl font-black text-left underline">
                   Juan García Marín
                 </p>
               </div>
@@ -164,11 +164,11 @@ export default function PortfolioPage() {
                         </span>
                       </div>
                       <h3 className="text-xl font-bold mb-2">{p.title}</h3>
-                      <p className="text-foreground text-base leading-relaxed mb-2">
+                      <p className="text-foreground text-base leading-relaxed mb-2 pl-6">
                         {p.desc}
                       </p>
                     </div>
-                    <div className="flex items-center text-white font-semibold group-hover:underline transition-all duration-200 text-sm">
+                    <div className="flex items-center text-white font-semibold group-hover:underline transition-all duration-200 text-sm pl-6">
                       <span>{t('viewProject')}</span>
                       <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
                         →
