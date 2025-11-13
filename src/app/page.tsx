@@ -2,17 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import SpotlightCard from '@/components/SpotlightCard';
-import MarqueeSkills from '@/components/MarqueeSkills';
-import SkillIcon from '@/components/SkillIcons';
-import ShinyText from '@/components/ShinyText';
-import Silk from '@/components/Silk';
-import Dither from '@/components/Dither';
+// import LanguageToggle from '@/components/LanguageToggle';
 import Image from 'next/image';
-import LetterGlitch from '@/components/LetterGlitch';
-import Aurora from '@/components/Aurora';
-import SplitText from '@/components/SplitText';
-import LanguageToggle from '@/components/LanguageToggle';
 
 interface Project {
   title: string;
@@ -36,7 +27,6 @@ export default function PortfolioPage() {
 
   // Load translated lists or fall back
   const projectList: Project[] = t.raw('projectList') || [];
-  const skills: string[] = t.raw('skills') || [];
 
   const closeModal = () => {
     setShowModal(false);
@@ -69,64 +59,57 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen text-foreground">
-      {/* Animated Background Elements */}
-      {/* Aurora background for Hero/Intro section */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none h-full">
-        <Aurora
-          colorStops={['#5bc0be', '#6fffe9', '#3a506b', '#1c2541', '#0b132b']}
-          blend={1}
-          amplitude={0.5}
-          speed={0.5}
-        />
-        {/* Aurora fade to black at the bottom */}
-        <div
-          className="absolute left-0 right-0 bottom-0 h-1/4 w-full pointer-events-none"
-          style={{
-            background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%)',
-            zIndex: 2,
-          }}
-        />
-      </div>
+    <div className="min-h-screen text-foreground bg-blue-700">
+      <main className="relative z-10 w-7/12 mx-auto pt-3">
+        <div className="w-full h-[9px] bg-white mx-auto" />
+        <div className="w-full h-[3px] bg-white mx-auto mt-2" />
+        {/* <LanguageToggle /> */}
+        <section className="flex items-center px-4 pt-24 md:pt-0  relative">
+          <div className="text-left ">
+            <div className="my-8 animate-fade-in ">
+              <span className="text-xl md:text-2xl max-w-3xl mx-auto animate-shine">
+                {t('greeting')}
+              </span>
+              <p className="text-5xl font-black text-left animate-shine underline">
+                Juan García Marín
+              </p>
 
-      <main className="relative z-10">
-        <LanguageToggle />
-        {/* Hero Section */}
-        <section
-          id="intro"
-          className="min-h-screen flex items-center justify-center px-6 pt-24 md:pt-0">
-          <div className="text-center mx-auto">
-            <div className="mb-8 animate-fade-in">
-              <ShinyText text={t('greeting')} speed={3} className="text-2xl" />
-              <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-5xl gap-16 my-10">
-                <SplitText
-                  text="Juan García Marín"
-                  className="text-6xl sm:text-7xl md:text-9xl font-black text-center"
-                  delay={60}
-                  duration={2}
-                  ease="expo.out"
-                  splitType="words, chars"
-                  from={{ opacity: 0, y: 80 }}
-                  to={{ opacity: 1, y: 0 }}
-                  threshold={0.1}
-                  textAlign="center"
-                />
+              <div className="absolute right-0 top-0 mt-2">
+                <div className="relative w-[250px] h-[250px] ">
+                  <svg
+                    viewBox="0 0 100 100"
+                    className="absolute top-0 left-0 w-full h-full origin-center">
+                    <defs>
+                      <path
+                        id="circle"
+                        d="
+                        M 50, 50
+                        m -35, 0
+                        a 35,35 0 1,1 70,0
+                        a 35,35 0 1,1 -70,0
+                        "
+                      />
+                    </defs>
+                    <text>
+                      <textPath href="#circle">{t('tagline')}</textPath>
+                    </text>
+                  </svg>
+                  <Image
+                    src={'/me.webp'}
+                    height={150}
+                    width={150}
+                    alt="yo"
+                    className="absolute rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  />
+                </div>
               </div>
-
-              <ShinyText
-                text={t('tagline')}
-                speed={3}
-                className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
-              />
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center absolute">
               <a
                 href="https://github.com/j1-dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group px-8 py-4 rounded-full bg-black text-white font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 shadow-md border border-stone-800 hover:border-stone-500">
+                className="group px-8 py-4 rounded-2xl  text-white font-semibold ">
                 <span className="flex items-center justify-center space-x-2 text-lg">
                   <span>{t('github')}</span>
                   <span className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -136,9 +119,7 @@ export default function PortfolioPage() {
               </a>
               <a
                 href="https://www.linkedin.com/in/juan-garcia-marin/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group px-8 py-4 rounded-full border border-stone-800 hover:border-stone-500 text-black dark:text-white font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 bg-white dark:bg-black/80 ">
+                className="group px-8 py-4 rounded-2xl  text-white font-semibold ">
                 <span className="flex items-center justify-center space-x-2 text-lg">
                   <span>{t('linkedin')}</span>
                   <span className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -147,98 +128,51 @@ export default function PortfolioPage() {
                 </span>
               </a>
             </div>
-
-            {/* Skills Horizontal Scroll - full width, overlayed, does not affect centering */}
-            <div className="relative w-full flex justify-center mt-8">
-              <div className="absolute left-0 right-0 w-screen max-w-none -mx-[calc((100vw-100%)/2)]">
-                <MarqueeSkills
-                  items={skills.map((skill) => (
-                    <SkillIcon key={skill} skill={skill} />
-                  ))}
-                  speed={60}
-                  className="w-full"
-                  style={{ minHeight: 56 }}
-                />
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* Projects Section with Dither background */}
-        <section id="projects" className="py-24 px-6 relative">
-          <div
-            className="absolute left-0 right-0 top-0 h-1/4 w-full pointer-events-none"
-            style={{
-              background: 'linear-gradient(0deg, rgba(0,0,0,0) 0%, #000 100%)',
-              zIndex: 2,
-            }}
-          />
-          {/* Dither background */}
-          <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-            <Dither
-              waveColor={[0.36, 0.75, 0.75]} // #5bc0be normalized (91,192,190)
-              disableAnimation={false}
-              enableMouseInteraction={false}
-              mouseRadius={1}
-              colorNum={5}
-              waveAmplitude={0.3}
-              waveFrequency={3}
-              waveSpeed={0.05}
-            />
-            {/* Fade to black at the bottom for smooth transition to next section */}
-            <div
-              className="absolute left-0 right-0 bottom-0 h-1/4 w-full pointer-events-none"
-              style={{
-                background:
-                  'linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 100%)',
-                zIndex: 2,
-              }}
-            />
-          </div>
-          <div className="max-w-6xl mx-auto relative z-10">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-black dark:text-white tracking-tight">
+        <div className="w-full h-[3px] bg-white mx-auto mt-36" />
+
+        <section id="projects" className="p-6 relative">
+          <div className="w-full mx-auto relative z-10">
+            <div className="text-left">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 dark:text-white tracking-tight">
                 {t('featuredProjects')}
               </h2>
-              <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+              <span className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
                 {t('projectCollection')}
-              </p>
+              </span>
             </div>
 
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projectList.map((p, index) => (
-                  <SpotlightCard
-                    key={p.title}
-                    spotlightColor={'rgba(111, 255, 233, 0.3)'}
-                    className="cursor-pointer h-80 p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-[#0b132b]/40 dark:border-[#5bc0be]/40 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                    <div
-                      onClick={() => setSelectedProject(p)}
-                      style={{ animationDelay: `${index * 150}ms` }}
-                      className="flex flex-col justify-between h-full group w-full cursor-pointer">
-                      <div>
-                        <div className="w-12 h-12 rounded-xl bg-[#6fffe9] from-[#0b132b] via-[#3a506b] to-[#6fffe9] flex items-center justify-center mb-4">
-                          <span className="text-background font-bold text-lg">
-                            {p.title.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold mb-2 text-[#1c2541] dark:text-[#5bc0be] tracking-tight">
-                          {p.title}
-                        </h3>
-                        <p className="text-foreground text-base leading-relaxed mb-2">
-                          {p.desc}
-                        </p>
-                      </div>
-                      <div className="flex items-center text-[#0b132b] dark:text-[#5bc0be] font-semibold group-hover:underline transition-all duration-200 text-sm">
-                        <span>{t('viewProject')}</span>
-                        <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
-                          →
+              {projectList.map((p, index) => (
+                <div
+                  key={p.title}
+                  className="cursor-pointer py-8 border-b border-white">
+                  <div
+                    onClick={() => setSelectedProject(p)}
+                    style={{ animationDelay: `${index * 150}ms` }}
+                    className="flex flex-col justify-between h-full group w-full cursor-pointer">
+                    <div>
+                      <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4">
+                        <span className="font-bold text-lg text-blue-700">
+                          {p.title.charAt(0).toUpperCase()}
                         </span>
                       </div>
+                      <h3 className="text-xl font-bold mb-2">{p.title}</h3>
+                      <p className="text-foreground text-base leading-relaxed mb-2">
+                        {p.desc}
+                      </p>
                     </div>
-                  </SpotlightCard>
-                ))}
-              </div>
+                    <div className="flex items-center text-white font-semibold group-hover:underline transition-all duration-200 text-sm">
+                      <span>{t('viewProject')}</span>
+                      <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
+                        →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -295,33 +229,9 @@ export default function PortfolioPage() {
           )}
         </section>
 
-        {/* Contact Section with LetterGlitch background */}
-        <section id="contact" className="py-24 px-6 relative">
-          {/* LetterGlitch background */}
-          <div
-            className="absolute left-0 right-0 top-0 h-1/4 w-full pointer-events-none"
-            style={{
-              background: 'linear-gradient(0deg, rgba(0,0,0,0) 0%, #000 100%)',
-              zIndex: 2,
-            }}
-          />
-          <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-            <LetterGlitch
-              glitchSpeed={50}
-              centerVignette={true}
-              outerVignette={false}
-              smooth={true}
-              glitchColors={[
-                '#0b132b',
-                '#1c2541',
-                '#3a506b',
-                '#5bc0be',
-                '#6fffe9',
-              ]}
-            />
-          </div>
-          <div className="max-w-2xl mx-auto relative z-10">
-            <div className="text-center mb-12">
+        <section id="contact" className="p-6 relative">
+          <div className="w-full mx-auto relative z-10">
+            <div className="mb-12">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-black dark:text-white tracking-tight">
                 {t('getInTouch')}
               </h2>
@@ -330,31 +240,29 @@ export default function PortfolioPage() {
               </p>
             </div>
 
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-6 p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 shadow-md">
+            <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-3xl">
               <div className="space-y-6">
                 <div className="group">
-                  <label className="block text-sm font-semibold text-black dark:text-white mb-2">
+                  <label className="block text-sm font-semibold">
                     {t('name')}
                   </label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-4 rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-800 text-black dark:text-white placeholder:text-neutral-400 focus:border-black dark:focus:border-white focus:outline-none transition-all duration-300"
+                    className="w-full px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300"
                     placeholder={t('fullName')}
                   />
                 </div>
                 <div className="group">
-                  <label className="block text-sm font-semibold text-black dark:text-white mb-2">
+                  <label className="block text-sm font-semibold">
                     {t('message')}
                   </label>
                   <textarea
                     name="message"
                     rows={6}
                     required
-                    className="w-full px-4 py-4 rounded-xl border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-800 text-black dark:text-white placeholder:text-neutral-400 focus:border-black dark:focus:border-white focus:outline-none transition-all duration-300 resize-none"
+                    className="w-full px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300"
                     placeholder={t('tellMe')}
                   />
                 </div>
@@ -369,18 +277,7 @@ export default function PortfolioPage() {
         </section>
       </main>
 
-      {/* Footer with Silk background */}
       <footer className="relative z-10 py-12 px-6 border-t border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 backdrop-blur-sm overflow-hidden">
-        {/* Silk background */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <Silk
-            speed={5}
-            scale={1}
-            color="#252521"
-            noiseIntensity={1.5}
-            rotation={0}
-          />
-        </div>
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <p className="text-neutral-600 dark:text-neutral-300">
             {t('footerText', { author: 'Juan García Marín' })}
