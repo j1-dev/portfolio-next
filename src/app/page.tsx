@@ -68,56 +68,23 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen text-foreground bg-blue-700">
-      <main className="relative z-10 w-7/12 mx-auto pt-3">
+    <div className="min-h-screen text-foreground bg-blue-700 overflow-hidden">
+      <main className="relative z-10 2xl:w-7/12 lg:w-10/12 px-5 mx-auto pt-3">
         {/* <div className="w-full h-[50px] bg-white mx-auto" /> */}
         <Navbar />
         <div className="w-full h-[3px] bg-white mx-auto mt-2 rounded-full" />
-        <section className="flex items-center p-6 relative h-68 w-full">
-          <div>
+        <section className="flex flex-col md:flex-row items-center justify-center md:justify-between p-6 relative w-full gap-8 md:gap-0">
+          {/* Text Content */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
             <div className="my-8">
-              <div className="absolute top-12 ">
-                <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-                  {t('greeting')}
-                </p>
-                <p className="text-5xl font-black underline">
-                  Juan García Marín
-                </p>
-              </div>
-
-              <div className="absolute right-0 top-0 mt-2">
-                <div className="relative w-[250px] h-[250px] ">
-                  <svg
-                    viewBox="0 0 100 100"
-                    className="absolute top-0 left-0 w-full h-full origin-center">
-                    <defs>
-                      <path
-                        id="circle"
-                        d="
-                        M 50, 50
-                        m -35, 0
-                        a 35,35 0 1,1 70,0
-                        a 35,35 0 1,1 -70,0
-                        "
-                      />
-                    </defs>
-                    <text>
-                      <textPath href="#circle">{t('tagline')}</textPath>
-                    </text>
-                  </svg>
-                  <Image
-                    src={'/me.webp'}
-                    height={150}
-                    width={150}
-                    alt="yo"
-                    className="absolute rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                  />
-                </div>
-              </div>
+              <p className="text-2xl max-w-3xl mx-auto md:mx-0">
+                {t('greeting')}
+              </p>
+              <p className="text-5xl font-black underline">Juan García Marín</p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center absolute">
+            <div className="flex sm:flex-row gap-4 justify-center md:justify-start mt-6">
               {ctaButtons.map((cta) => (
                 <a
                   key={cta.title}
@@ -131,6 +98,37 @@ export default function PortfolioPage() {
                   </span>
                 </a>
               ))}
+            </div>
+          </div>
+
+          {/* SVG and Image */}
+          <div className="flex-shrink-0">
+            <div className="relative w-[250px] h-[250px]">
+              <svg
+                viewBox="0 0 100 100"
+                className="absolute top-0 left-0 w-full h-full origin-center">
+                <defs>
+                  <path
+                    id="circle"
+                    d="
+                    M 50, 50
+                    m -35, 0
+                    a 35,35 0 1,1 70,0
+                    a 35,35 0 1,1 -70,0
+                    "
+                  />
+                </defs>
+                <text>
+                  <textPath href="#circle">{t('tagline')}</textPath>
+                </text>
+              </svg>
+              <Image
+                src={'/me.webp'}
+                height={150}
+                width={150}
+                alt="yo"
+                className="absolute rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              />
             </div>
           </div>
         </section>
@@ -154,7 +152,7 @@ export default function PortfolioPage() {
                   <div
                     onClick={() => setSelectedProject(p)}
                     style={{ animationDelay: `${index * 150}ms` }}
-                    className="flex flex-col justify-between h-full group w-full cursor-pointer border-l rounded-xl">
+                    className="flex flex-col justify-between h-full group w-full cursor-pointer border-l-2 rounded-2xl">
                     <div>
                       <div className="flex gap-2">
                         <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-2">
