@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import LanguageToggle from '@/components/LanguageToggle';
 import Image from 'next/image';
+import Navbar from '@/components/Navbar';
 
 interface Project {
   title: string;
@@ -70,17 +70,17 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen text-foreground bg-blue-700">
       <main className="relative z-10 w-7/12 mx-auto pt-3">
-        <div className="w-full h-[9px] bg-white mx-auto" />
-        <div className="w-full h-[3px] bg-white mx-auto mt-2" />
-        <LanguageToggle />
+        {/* <div className="w-full h-[50px] bg-white mx-auto" /> */}
+        <Navbar />
+        <div className="w-full h-[3px] bg-white mx-auto mt-2 rounded-full" />
         <section className="flex items-center p-6 relative h-68 w-full">
-          <div className="text-left ">
+          <div>
             <div className="my-8">
-              <div className='absolute top-12 '>
+              <div className="absolute top-12 ">
                 <p className="text-xl md:text-2xl max-w-3xl mx-auto">
                   {t('greeting')}
                 </p>
-                <p className="text-5xl font-black text-left underline">
+                <p className="text-5xl font-black underline">
                   Juan García Marín
                 </p>
               </div>
@@ -135,40 +135,42 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <div className="w-full h-[3px] bg-white mx-auto " />
+        <div className="w-full h-[3px] bg-white mx-auto rounded-full " />
 
-        <section id="projects" className="p-6 relative">
-          <div className="w-full mx-auto relative z-10">
-            <div className="text-left">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 dark:text-white tracking-tight">
+        <section id="projects" className="px-6 pt-8 relative">
+          <div className="w-full mx-auto relative z-10 ">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-1">
                 {t('featuredProjects')}
               </h2>
-              <span className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto">
+              <span className="max-w-2xl mx-auto">
                 {t('projectCollection')}
               </span>
             </div>
 
             <div>
               {projectList.map((p, index) => (
-                <div
-                  key={p.title}
-                  className="cursor-pointer py-8 border-b border-white">
+                <div key={p.title} className="cursor-pointer py-6 border-white">
                   <div
                     onClick={() => setSelectedProject(p)}
                     style={{ animationDelay: `${index * 150}ms` }}
-                    className="flex flex-col justify-between h-full group w-full cursor-pointer">
+                    className="flex flex-col justify-between h-full group w-full cursor-pointer border-l rounded-xl">
                     <div>
-                      <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4">
-                        <span className="font-bold text-lg text-blue-700">
-                          {p.title.charAt(0).toUpperCase()}
-                        </span>
+                      <div className="flex gap-2">
+                        <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-2">
+                          <span className="font-bold text-lg text-blue-700">
+                            {p.title.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold mt-[10px]">
+                          {p.title}
+                        </h3>
                       </div>
-                      <h3 className="text-xl font-bold mb-2">{p.title}</h3>
-                      <p className="text-foreground text-base leading-relaxed mb-2 pl-6">
+                      <p className="text-foreground text-base leading-relaxed mb-1 pl-6">
                         {p.desc}
                       </p>
                     </div>
-                    <div className="flex items-center text-white font-semibold group-hover:underline transition-all duration-200 text-sm pl-6">
+                    <div className="flex items-center text-white font-semibold group-hover:underline transition-all duration-200 text-sm pl-6 pb-1">
                       <span>{t('viewProject')}</span>
                       <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
                         →
@@ -233,15 +235,15 @@ export default function PortfolioPage() {
           )}
         </section>
 
+        <div className="w-full h-[3px] bg-white mx-auto rounded-full my-6" />
+
         <section id="contact" className="p-6 relative">
           <div className="w-full mx-auto relative z-10">
             <div className="mb-2">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-black dark:text-white tracking-tight">
                 {t('getInTouch')}
               </h2>
-              <p className="text-lg text-neutral-600 dark:text-neutral-300">
-                {t('discuss')}
-              </p>
+              <p>{t('discuss')}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-3xl">

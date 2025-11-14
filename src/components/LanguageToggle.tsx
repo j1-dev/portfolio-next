@@ -20,8 +20,7 @@ export default function LanguageToggle() {
   };
 
   return (
-    <div className="fixed top-6 right-6 z-50 flex gap-2 items-center">
-      <div className="flex p-1">
+    <div className="z-50 flex gap-2 items-center bg-blue-700 w-fit rounded-xl p-1 absolute right-2 top-[6px] h-11">
         {localeArray.map((loc) => (
           <button
             key={loc}
@@ -33,7 +32,6 @@ export default function LanguageToggle() {
             {loc.toUpperCase()}
           </button>
         ))}
-      </div>
     </div>
   );
 }
