@@ -73,7 +73,7 @@ export default function PortfolioPage() {
         {/* <div className="w-full h-[50px] bg-white mx-auto" /> */}
         <Navbar />
         <div className="w-full h-[3px] bg-white mx-auto mt-2 rounded-full" />
-        <section className="flex flex-col md:flex-row items-center justify-center md:justify-between p-6 relative w-full gap-8 md:gap-0">
+        <section className="flex flex-col md:flex-row items-center justify-center md:justify-between px-6 relative w-full md:gap-0">
           {/* Text Content */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
             <div className="my-8">
@@ -84,7 +84,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex sm:flex-row gap-4 justify-center md:justify-start mt-6">
+            <div className="flex sm:flex-row gap-4 justify-center md:justify-start mb-2 xs:mb-0">
               {ctaButtons.map((cta) => (
                 <a
                   key={cta.title}
@@ -244,36 +244,39 @@ export default function PortfolioPage() {
               <p>{t('discuss')}</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-3xl">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 px-6 py-2 rounded-3xl">
               <div className="space-y-6">
                 <div className="group">
-                  <label className="block text-sm font-semibold">
+                  <label className="block text-sm font-semibold mb-1">
                     {t('name')}
                   </label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300"
+                    className="w-full bg-blue-800 border-black/10 px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300"
                     placeholder={t('fullName')}
                   />
                 </div>
                 <div className="group">
-                  <label className="block text-sm font-semibold">
+                  <label className="block text-sm font-semibold mb-1">
                     {t('message')}
                   </label>
                   <textarea
                     name="message"
                     rows={6}
+                    maxLength={1000}
                     required
-                    className="w-full px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300"
+                    className="w-full bg-blue-800 border-black/10 px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300 h-40 resize-none"
                     placeholder={t('tellMe')}
                   />
                 </div>
               </div>
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-black text-white font-bold text-lg hover:scale-105 hover:shadow-lg transition-all duration-300">
+                className="w-full py-4 rounded-xl bg-white text-blue-700 font-bold text-lg transition-all duration-300">
                 {t('sendMessage')}
               </button>
             </form>
@@ -281,12 +284,12 @@ export default function PortfolioPage() {
         </section>
       </main>
 
-      <footer className="relative z-10 py-12 px-6 border-t border-black/10 dark:border-white/10 bg-white dark:bg-neutral-900 backdrop-blur-sm overflow-hidden">
+      <footer className="relative z-10 py-6 px-6 border-t border-black/10 dark:border-white/10 bg-blue-800 backdrop-blur-sm overflow-hidden">
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <p className="text-neutral-600 dark:text-neutral-300">
             {t('footerText', { author: 'Juan García Marín' })}
           </p>
-          <div className="mt-6 flex justify-center space-x-6">
+          <div className="mt-2 flex justify-center space-x-6">
             <a
               href="https://github.com/j1-dev"
               target="_blank"
