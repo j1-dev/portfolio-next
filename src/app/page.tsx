@@ -70,17 +70,18 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen text-foreground bg-blue-700 overflow-hidden">
       <main className="relative z-10 2xl:w-7/12 lg:w-10/12 px-5 mx-auto pt-3">
-        {/* <div className="w-full h-[50px] bg-white mx-auto" /> */}
         <Navbar />
-        <div className="w-full h-[3px] bg-white mx-auto mt-2 rounded-full" />
+        <div className="w-full h-[3px] bg-yellow-300 mx-auto mt-2 rounded-full" />
         <section className="flex flex-col md:flex-row items-center justify-center md:justify-between px-6 relative w-full md:gap-0">
           {/* Text Content */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
             <div className="my-8">
-              <p className="text-2xl max-w-3xl mx-auto md:mx-0">
+              <p className="text-2xl max-w-3xl mx-auto md:mx-0 text-yellow-300">
                 {t('greeting')}
               </p>
-              <p className="text-5xl font-black underline">Juan García Marín</p>
+              <p className="text-5xl font-black underline decoration-yellow-300">
+                Juan García Marín
+              </p>
             </div>
 
             {/* CTA Buttons */}
@@ -89,7 +90,7 @@ export default function PortfolioPage() {
                 <a
                   key={cta.title}
                   href={cta.url}
-                  className="group px-8 py-4 rounded-2xl text-white font-semibold ">
+                  className="group px-8 py-4 rounded-2xl text-yellow-300 font-semibold ">
                   <span className="flex items-center justify-center space-x-2 text-lg">
                     <span>{cta.title}</span>
                     <span className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -133,7 +134,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <div className="w-full h-[3px] bg-white mx-auto rounded-full " />
+        <div className="w-full h-[3px] bg-yellow-300 mx-auto rounded-full " />
 
         <section id="projects" className="px-6 pt-8 relative">
           <div className="w-full mx-auto relative z-10 ">
@@ -152,7 +153,7 @@ export default function PortfolioPage() {
                   <div
                     onClick={() => setSelectedProject(p)}
                     style={{ animationDelay: `${index * 150}ms` }}
-                    className="flex flex-col justify-between h-full group w-full cursor-pointer border-l-2 rounded-2xl">
+                    className="group flex flex-col justify-between h-full group w-full cursor-pointer border-l-2 rounded-2xl">
                     <div>
                       <div className="flex gap-2">
                         <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-2">
@@ -160,15 +161,15 @@ export default function PortfolioPage() {
                             {p.title.charAt(0).toUpperCase()}
                           </span>
                         </div>
-                        <h3 className="text-xl font-bold mt-[10px]">
+                        <h3 className="text-xl font-bold mt-[10px] text-yellow-300 group-hover:scale-105 group-hover:ml-2 transition-all">
                           {p.title}
                         </h3>
                       </div>
-                      <p className="text-foreground text-base leading-relaxed mb-1 pl-6">
+                      <p className="text-base leading-relaxed mb-1 pl-6 text-white">
                         {p.desc}
                       </p>
                     </div>
-                    <div className="flex items-center text-white font-semibold group-hover:underline transition-all duration-200 text-sm pl-6 pb-1">
+                    <div className="flex items-center text-yellow-300 font-semibold group-hover:underline transition-all duration-200 text-sm pl-6 pb-1">
                       <span>{t('viewProject')}</span>
                       <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
                         →
@@ -233,7 +234,7 @@ export default function PortfolioPage() {
           )}
         </section>
 
-        <div className="w-full h-[3px] bg-white mx-auto rounded-full my-6" />
+        <div className="w-full h-[3px] bg-yellow-300 mx-auto rounded-full my-3 " />
 
         <section id="contact" className="p-6 relative">
           <div className="w-full mx-auto relative z-10">
@@ -286,7 +287,7 @@ export default function PortfolioPage() {
 
       <footer className="relative z-10 py-6 px-6 border-t border-black/10 dark:border-white/10 bg-blue-800 backdrop-blur-sm overflow-hidden">
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <p className="text-neutral-600 dark:text-neutral-300">
+          <p className="text-yellow-500/70">
             {t('footerText', { author: 'Juan García Marín' })}
           </p>
           <div className="mt-2 flex justify-center space-x-6">
@@ -294,14 +295,14 @@ export default function PortfolioPage() {
               href="https://github.com/j1-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:underline transition-colors duration-200">
+              className="text-yellow-600/60 hover:underline transition-all duration-200">
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/juan-garcia-marin/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:underline transition-colors duration-200">
+              className="text-yellow-600/60 hover:underline transition-all duration-200">
               LinkedIn
             </a>
           </div>

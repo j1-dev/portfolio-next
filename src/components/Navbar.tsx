@@ -7,17 +7,17 @@ const Navbar = () => {
       <div className="relative w-full ">
         <LanguageToggle />
         <div className="flex p-[6px] gap-1">
-          <div className="text-white h-11 bg-blue-700 w-fit px-2 flex items-center justify-center rounded-xl">
+          <div className="hover:text-yellow-300 h-11 bg-blue-700 w-fit px-2 flex items-center justify-center rounded-xl">
             <a href="#proyectos" className="items-center justify-center">
               Proyectos
             </a>
           </div>
-          <div className="text-white h-11 bg-blue-700 w-fit px-2 flex items-center justify-center rounded-xl">
+          <div className="hover:text-yellow-300 h-11 bg-blue-700 w-fit px-2 flex items-center justify-center rounded-xl">
             <a href="#contacto" className="items-center justify-center">
               Contacto
             </a>
           </div>
-          <div className="text-white h-11 bg-blue-700 w-fit px-2 flex items-center justify-center rounded-xl">
+          <div className="hover:text-yellow-300 h-11 bg-blue-700 w-fit px-2 flex items-center justify-center rounded-xl">
             <a href="#contacto" className="items-center justify-center">
               Blog
             </a>
