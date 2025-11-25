@@ -68,18 +68,18 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen text-foreground bg-blue-700 overflow-hidden">
+    <div className="min-h-screen text-foreground bg-background overflow-hidden">
       <main className="relative z-10 2xl:w-7/12 lg:w-10/12 px-5 mx-auto pt-3">
         <Navbar />
-        <div className="w-full h-[3px] bg-yellow-300 mx-auto mt-2 rounded-full" />
+        <div className="w-full h-[3px] bg-accent mx-auto mt-2 rounded-full" />
         <section className="flex flex-col md:flex-row items-center justify-center md:justify-between px-6 relative w-full md:gap-0">
           {/* Text Content */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left flex-1">
             <div className="my-8">
-              <p className="text-2xl max-w-3xl mx-auto md:mx-0 text-yellow-300">
+              <p className="text-2xl max-w-3xl mx-auto md:mx-0 text-accent">
                 {t('greeting')}
               </p>
-              <p className="text-5xl font-black underline decoration-yellow-300">
+              <p className="text-5xl font-black underline decoration-accent">
                 Juan García Marín
               </p>
             </div>
@@ -90,7 +90,7 @@ export default function PortfolioPage() {
                 <a
                   key={cta.title}
                   href={cta.url}
-                  className="group px-8 py-4 rounded-2xl text-yellow-300 font-semibold ">
+                  className="group px-8 py-4 rounded-2xl text-accent font-semibold ">
                   <span className="flex items-center justify-center space-x-2 text-lg">
                     <span>{cta.title}</span>
                     <span className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -134,7 +134,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <div className="w-full h-[3px] bg-yellow-300 mx-auto rounded-full " />
+        <div className="w-full h-[3px] bg-accent mx-auto rounded-full " />
 
         <section id="projects" className="px-6 pt-8 relative">
           <div className="w-full mx-auto relative z-10 ">
@@ -149,27 +149,27 @@ export default function PortfolioPage() {
 
             <div>
               {projectList.map((p, index) => (
-                <div key={p.title} className="cursor-pointer py-6 border-white">
+                <div key={p.title} className="cursor-pointer py-6 border-foreground/20">
                   <div
                     onClick={() => setSelectedProject(p)}
                     style={{ animationDelay: `${index * 150}ms` }}
-                    className="group flex flex-col justify-between h-full group w-full cursor-pointer border-l-2 rounded-2xl">
+                    className="group flex flex-col justify-between h-full group w-full cursor-pointer border-l-2 rounded-2xl border-foreground">
                     <div>
                       <div className="flex gap-2">
-                        <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-2">
-                          <span className="font-bold text-lg text-blue-700">
+                        <div className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center mb-2">
+                          <span className="font-bold text-lg text-background">
                             {p.title.charAt(0).toUpperCase()}
                           </span>
                         </div>
-                        <h3 className="text-xl font-bold mt-[10px] text-yellow-300 group-hover:scale-105 group-hover:ml-2 transition-all">
+                        <h3 className="text-xl font-bold mt-[10px] text-foreground group-hover:scale-105 group-hover:ml-2 transition-all">
                           {p.title}
                         </h3>
                       </div>
-                      <p className="text-base leading-relaxed mb-1 pl-6 text-white">
+                      <p className="text-base leading-relaxed mb-1 pl-6 text-">
                         {p.desc}
                       </p>
                     </div>
-                    <div className="flex items-center text-yellow-300 font-semibold group-hover:underline transition-all duration-200 text-sm pl-6 pb-1">
+                    <div className="flex items-center text-accent font-semibold group-hover:underline transition-all duration-200 text-sm pl-6 pb-1">
                       <span>{t('viewProject')}</span>
                       <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-200">
                         →
@@ -185,18 +185,18 @@ export default function PortfolioPage() {
           {selectedProject && (
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
               <div
-                className={`fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity duration-300 ${
+                className={`fixed inset-0 bg-background/60 backdrop-blur-md transition-opacity duration-300 ${
                   showModal ? 'opacity-100' : 'opacity-0'
                 }`}
                 onClick={closeModal}
               />
               <div
-                className={`bg-white dark:bg-neutral-900 p-8 rounded-3xl max-w-4xl w-full shadow-2xl relative transform transition-all duration-300 border border-black/10 dark:border-white/10 ${
+                className={`bg-background p-8 rounded-3xl max-w-4xl w-full shadow-2xl relative transform transition-all duration-300 border border-foreground/20 ${
                   showModal ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}>
                 <button
                   onClick={closeModal}
-                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center text-xl font-bold transition-colors duration-300">
+                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-bacgkround hover:bg-background/20 flex items-center justify-center text-xl font-bold transition-colors duration-300">
                   ✕
                 </button>
                 <div className="flex flex-col lg:flex-row gap-8">
@@ -209,21 +209,21 @@ export default function PortfolioPage() {
                         height="1000"
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-black/10" />
+                      <div className="absolute inset-0 bg-background/10" />
                     </div>
                   </div>
                   <div className="lg:w-1/2 flex flex-col justify-center">
-                    <h3 className="text-2xl font-bold mb-4 text-black dark:text-white tracking-tight">
+                    <h3 className="text-2xl font-bold mb-4 text-foreground tracking-tight">
                       {selectedProject.title}
                     </h3>
-                    <p className="text-base text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+                    <p className="text-base text-foreground mb-8 leading-relaxed">
                       {selectedProject.full_description}
                     </p>
                     <a
                       href={selectedProject.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-black text-white font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 w-fit">
+                      className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-background text-foreground font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300 w-fit">
                       <span>{t('visitProject')}</span>
                       <span>→</span>
                     </a>
@@ -234,12 +234,12 @@ export default function PortfolioPage() {
           )}
         </section>
 
-        <div className="w-full h-[3px] bg-yellow-300 mx-auto rounded-full my-3 " />
+        <div className="w-full h-[3px] bg-accent mx-auto rounded-full my-3 " />
 
         <section id="contact" className="p-6 relative">
           <div className="w-full mx-auto relative z-10">
             <div className="mb-2">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-black dark:text-white tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-foreground tracking-tight">
                 {t('getInTouch')}
               </h2>
               <p>{t('discuss')}</p>
@@ -257,7 +257,7 @@ export default function PortfolioPage() {
                     type="text"
                     name="name"
                     required
-                    className="w-full bg-blue-800 border-black/10 px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300"
+                    className="w-full bg-foreground/10 border-foreground/10 px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300"
                     placeholder={t('fullName')}
                   />
                 </div>
@@ -270,14 +270,14 @@ export default function PortfolioPage() {
                     rows={6}
                     maxLength={1000}
                     required
-                    className="w-full bg-blue-800 border-black/10 px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300 h-40 resize-none"
+                    className="w-full bg-foreground/10 border-background/10 px-4 py-4 rounded-xl border focus:outline-none transition-all duration-300 h-40 resize-none"
                     placeholder={t('tellMe')}
                   />
                 </div>
               </div>
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-white text-blue-700 font-bold text-lg transition-all duration-300">
+                className="w-full py-4 rounded-xl bg-foreground text-background font-bold text-lg transition-all duration-300">
                 {t('sendMessage')}
               </button>
             </form>
@@ -285,9 +285,9 @@ export default function PortfolioPage() {
         </section>
       </main>
 
-      <footer className="relative z-10 py-6 px-6 border-t border-black/10 dark:border-white/10 bg-blue-800 backdrop-blur-sm overflow-hidden">
+      <footer className="relative z-10 py-6 px-6 border-t border-black/10 dark:border-white/10 bg-foreground/10 backdrop-blur-sm overflow-hidden">
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <p className="text-yellow-500/70">
+          <p className="text-accent/70">
             {t('footerText', { author: 'Juan García Marín' })}
           </p>
           <div className="mt-2 flex justify-center space-x-6">
@@ -295,14 +295,14 @@ export default function PortfolioPage() {
               href="https://github.com/j1-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-yellow-600/60 hover:underline transition-all duration-200">
+              className="text-accent/60 hover:underline transition-all duration-200">
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/juan-garcia-marin/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-yellow-600/60 hover:underline transition-all duration-200">
+              className="text-accent/60 hover:underline transition-all duration-200">
               LinkedIn
             </a>
           </div>

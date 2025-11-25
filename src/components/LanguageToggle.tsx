@@ -20,18 +20,18 @@ export default function LanguageToggle() {
   };
 
   return (
-    <div className="z-50 flex gap-2 items-center bg-blue-700 w-fit rounded-xl p-1 absolute right-2 top-[6px] h-11">
-        {localeArray.map((loc) => (
-          <button
-            key={loc}
-            onClick={() => switchLocale(loc as 'es' | 'en')}
-            className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-105 ${
-              locale === loc ? 'bg-white text-blue-700' : 'text-white'
-            }`}
-            aria-pressed={locale === loc}>
-            {loc.toUpperCase()}
-          </button>
-        ))}
+    <div className="z-50 flex gap-2 items-center bg-background  w-fit rounded-xl p-1 absolute right-2 top-[6px] h-11">
+      {localeArray.map((loc) => (
+        <button
+          key={loc}
+          onClick={() => switchLocale(loc as 'es' | 'en')}
+          className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-105 ${
+            locale === loc ? 'bg-foreground text-background' : 'text-foreground'
+          }`}
+          aria-pressed={locale === loc}>
+          {loc.toUpperCase()}
+        </button>
+      ))}
     </div>
   );
 }
