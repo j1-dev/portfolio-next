@@ -4,6 +4,10 @@ import localFont from 'next/font/local';
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
 
+export const metadata = {
+  title: "J1's portfolio",
+};
+
 const helveticaNeue = localFont({
   src: [
     // {
