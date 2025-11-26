@@ -87,7 +87,7 @@ text {
   animation: rotate 20s linear infinite;
   transform-origin: 50% 50%;
   fill: var(--color-foreground);
-  font-size: 17px;
+  font-size: 15.5px;
 }
 
 :root {

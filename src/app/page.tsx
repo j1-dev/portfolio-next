@@ -68,8 +68,8 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen text-foreground bg-background overflow-hidden">
-      <main className="relative z-10 2xl:w-7/12 lg:w-10/12 px-5 mx-auto pt-3">
+    <div className="min-h-screen text-foreground bg-background overflow-hidden relative">
+      <main className="z-10 2xl:w-7/12 lg:w-10/12 px-5 mx-auto pt-3 ">
         <Navbar />
         <div className="w-full h-[3px] bg-accent mx-auto mt-2 rounded-full" />
         <section className="flex flex-col md:flex-row items-center justify-center md:justify-between px-6 relative w-full md:gap-0">
@@ -136,7 +136,7 @@ export default function PortfolioPage() {
 
         <div className="w-full h-[3px] bg-accent mx-auto rounded-full " />
 
-        <section id="projects" className="px-6 pt-8 relative">
+        <section id="proyectos" className="px-6 pt-8 relative">
           <div className="w-full mx-auto relative z-10 ">
             <div>
               <h2 className="text-4xl md:text-5xl font-extrabold mb-1">
@@ -149,7 +149,9 @@ export default function PortfolioPage() {
 
             <div>
               {projectList.map((p, index) => (
-                <div key={p.title} className="cursor-pointer py-6 border-foreground/20">
+                <div
+                  key={p.title}
+                  className="cursor-pointer py-6 border-foreground/20">
                   <div
                     onClick={() => setSelectedProject(p)}
                     style={{ animationDelay: `${index * 150}ms` }}
@@ -236,7 +238,7 @@ export default function PortfolioPage() {
 
         <div className="w-full h-[3px] bg-accent mx-auto rounded-full my-3 " />
 
-        <section id="contact" className="p-6 relative">
+        <section id="contacto" className="p-6 relative">
           <div className="w-full mx-auto relative z-10">
             <div className="mb-2">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-foreground tracking-tight">

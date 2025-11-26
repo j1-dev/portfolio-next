@@ -20,7 +20,7 @@ export default function LanguageToggle() {
   };
 
   return (
-    <div className="z-50 flex gap-2 items-center bg-background  w-fit rounded-xl p-1 absolute right-2 top-[6px] h-11">
+    <div className="z-50 flex gap-2 items-center bg-background w-fit rounded-xl p-1 sm:absolute fixed right-2 sm:top-[6px] bottom-[6px] h-11">
       {localeArray.map((loc) => (
         <button
           key={loc}
