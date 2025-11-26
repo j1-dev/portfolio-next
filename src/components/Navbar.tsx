@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="w-full h-14  mx-auto sticky rounded-t-xl rounded">
-      <div className="rounded-xl fixed bottom-[2px] right-1 bg-foreground w-40 h-13 ">
+    <nav className="w-full h-14  mx-auto relative rounded-t-xl rounded">
+      <div className="rounded-xl sm:absolute fixed bottom-[2px] right-1 w-40 h-13 z-50">
         <LanguageToggle />
         <ThemeSwitcher />
       </div>

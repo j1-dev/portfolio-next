@@ -68,7 +68,7 @@ export default function PortfolioPage() {
   };
 
   return (
-    <div className="min-h-screen text-foreground bg-background overflow-hidden relative">
+    <div className="min-h-screen text-foreground bg-background overflow-hidden">
       <main className="z-10 2xl:w-7/12 lg:w-10/12 px-5 mx-auto pt-3 ">
         <Navbar />
         <div className="w-full h-[3px] bg-accent mx-auto mt-2 rounded-full" />
