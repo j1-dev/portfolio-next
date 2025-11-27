@@ -16,6 +16,9 @@ export default function LanguageToggle() {
 
   const switchLocale = (newLocale: 'en' | 'es') => {
     document.cookie = `locale=${newLocale}; path=/; max-age=31536000`;
+    const { pathname, search } = window.location;
+    const cleanUrl = pathname + search;
+    window.history.replaceState(null, '', cleanUrl);
     window.location.reload();
   };
 
