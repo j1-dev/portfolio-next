@@ -1,6 +1,7 @@
 {
   "home": "Home",
   "projects": "Projects",
+  "blog": "Blog",
   "contact": "Contact",
   "downloadCV": "Download CV",
   "greeting": "Hello & welcome, I'm ",
@@ -10,22 +11,22 @@
   "projectList": [
     {
       "title": "Flowtrack",
-      "desc": "Full-stack Next.js app with prisma and tailwindcss for tracking tasks and habits.",
-      "full_description": "Flowtrack is a full-stack application built with Next.js, Prisma, and Tailwind CSS. It allows users to track their tasks and habits efficiently, providing a modern and responsive user interface, as well as analytics that provide feedback on their day to day progress.",
+      "desc": "Time management calendar app with tasks and habit tracking capabilities.",
+      "full_description": "Flowtrack is a full-stack application built with Next.js, Prisma, and Tailwind CSS. It helps users manage their tasks and habits through a clean, fast interface. The app also includes analytics that highlight patterns in daily activity, making it easier to understand progress and stay consistent.",
       "url": "https://flowtrack-ochre.vercel.app/",
       "pic_url": "/flowtrack2.png"
     },
     {
       "title": "Seal",
-      "desc": "Next.js 15 & Supabase remake of my first project.",
-      "full_description": "Seal is my latest project and I decided to make it as a way to see what would happen if I was to implement my first project idea again. I used Next.js instead of React and Supabase instead of Firebase, because I wanted to use an SQL database this time. ",
+      "desc": "Social media platform where users can share ideas and messages in real time.",
+      "full_description": "Seal is a Twitter-like app where users can share short posts, find and befriend other users, and interact through comments and likes. It’s built with Next.js and Supabase, which enables real-time updates and a smooth, responsive experience.",
       "url": "https://the-seal.vercel.app/",
       "pic_url": "/seal.png"
     },
     {
       "title": "Intellipic-lite",
-      "desc": "Lightweight version of Intellipic with Next.js and Supabase.",
-      "full_description": "Intellipic-lite is a simplified version of the original Intellipic app, built with Next.js and Supabase. It retains the core functionality of AI-generated avatars while streamlining the user experience and reducing resource consumption.",
+      "desc": "AI Text to image app that uses Seedream 4 for the creation of digital avatars.",
+      "full_description": "Intellipic-lite is a text-to-image web app built with Next.js and Supabase. It’s a simplified remake of my original project, Intellipic, which allowed users to finetune a Stable Diffusion XL model with any subject. The new version removes the finetuning step entirely while still delivering equally strong results.",
       "url": "https://intellipic-lite.vercel.app/",
       "pic_url": "/intellipic-lite.png"
     }

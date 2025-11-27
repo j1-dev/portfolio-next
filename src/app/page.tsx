@@ -249,7 +249,7 @@ export default function PortfolioPage() {
 
             <form
               onSubmit={handleSubmit}
-              className="space-y-6 px-6 py-2 rounded-3xl">
+              className="space-y-6 md:px-6 py-2 rounded-3xl">
               <div className="space-y-6">
                 <div className="group">
                   <label className="block text-sm font-semibold mb-1">

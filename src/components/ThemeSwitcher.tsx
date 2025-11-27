@@ -48,7 +48,7 @@ export const ThemeSwitcher: FC = () => {
   };
 
   return (
-    <div className="sm:absolute fixed right-32 sm:top-3 bottom-3 z-50">
+    <div className="sm:absolute fixed right-[129px]  sm:top-3 bottom-[18px] z-50">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="sm">
